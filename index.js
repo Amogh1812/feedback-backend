@@ -3,7 +3,14 @@ const cors = require("cors");
 const { MongoClient } = require("mongodb");
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  { 
+    origin: ["https://feedback-frontend-gray.vercel.app"],
+    methods: ["POST","GET"],
+    credentials: true
+  }
+));
+
 app.use(express.json());
 
 const url = "mongodb+srv://amoghp44:tmkc696969@cluster0.skepep6.mongodb.net/?retryWrites=true&w=majority"; // Replace with the correct MongoDB server URL
